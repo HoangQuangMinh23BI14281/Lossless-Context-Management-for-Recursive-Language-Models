@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid LCM + RLM | Visual Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Cytoscape for DAG Visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+</head>
+
+<body class="premium-dark">
+    <div class="app-container">
+        <!-- HEADER / TOKEN BUDGET -->
+        <header class="context-window-header">
+            <div class="header-top">
+                <span class="title">CONTEXT WINDOW</span>
+                <div class="badge-lcm">LCM</div>
+            </div>
+            <div class="token-budget-container">
+                <div class="budget-label">TOKEN BUDGET</div>
+                <div class="progress-bar-bg">
+                    <div id="token-progress" class="progress-bar-fill" style="width: 14%;"></div>
+                </div>
+                <div class="budget-stats">
+                    <span id="token-usage">1,140</span> / <span id="token-limit">8,000</span> (<span
+                        id="token-percent">14%</span>)
+                </div>
+            </div>
+        </header>
+
+        <!-- ACTIVE CONTEXT AREA (Summaries + Recent Messages) -->
+        <section id="active-context" class="context-list">
+            <!-- Dynamic content injected by app.js -->
+        </section>
+
+        <!-- SUMMARY DAG VISUALIZATION -->
+        <section class="dag-container">
+            <div class="section-title">SUMMARY DAG <span id="node-count" class="node-count">0 nodes</span></div>
+            <div id="cy" class="dag-viz"></div>
+        </section>
+
+        <!-- COMMAND CENTER / CHAT -->
+        <footer class="command-center">
+            <div id="chat-history" class="chat-history">
+                <!-- Chat messages appear here -->
+            </div>
+            <div class="input-area">
+                <textarea id="user-input" placeholder="Nhập câu hỏi tại đây... (Ctrl+Enter to send)"></textarea>
+                <button id="send-btn">SEND</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="overlay hidden">
+        <div class="spinner"></div>
+        <p>Agent is thinking...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
